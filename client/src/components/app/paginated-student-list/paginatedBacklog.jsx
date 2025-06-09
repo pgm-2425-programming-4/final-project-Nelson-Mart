@@ -20,7 +20,7 @@ export function PaginatedBacklog() {
             Authorization: `Bearer ${API_TOKEN}`,
           },
         });
-        
+
         if (!response.ok) throw new Error("Failed to fetch tasks");
         const data = await response.json();
         setTasks(data.data);

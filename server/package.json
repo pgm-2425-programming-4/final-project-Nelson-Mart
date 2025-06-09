@@ -32,5 +32,8 @@
   "strapi": {
     "uuid": "5c3246d4-a392-4d50-91fc-04e7010afdee",
     "installId": "c7a0d7402971cc4c3eee88f69290cbd8cf24d0915fcadc5ad3e850063aaf260f"
+  },
+  "devDependencies": {
+    "prettier": "3.5.3"
   }
 }

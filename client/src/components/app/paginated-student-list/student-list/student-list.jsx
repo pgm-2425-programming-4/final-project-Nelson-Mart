@@ -4,7 +4,9 @@ export function StudentList({ students }) {
     <ul>
       {students.map((student) => (
         <li key={student.id}>
-          <p>{student.attributes.firstName} - {student.attributes.age}</p>
+          <p>
+            {student.attributes.firstName} - {student.attributes.age}
+          </p>
         </li>
       ))}
     </ul>
