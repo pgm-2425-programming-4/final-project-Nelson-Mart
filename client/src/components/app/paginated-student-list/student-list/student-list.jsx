@@ -1,11 +1,10 @@
 export function StudentList({ students }) {
-  // TO DO
   return (
     <ul>
-      {students.map((student) => (
+      {students.map(student => (
         <li key={student.id}>
           <p>
-            {student.attributes.firstName} - {student.attributes.age}
+            {student.firstName} - {student.age}
           </p>
         </li>
       ))}
