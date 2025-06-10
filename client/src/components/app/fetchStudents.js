@@ -1,4 +1,4 @@
-import { API_TOKEN, API_URL } from "../../constants/constants";
+import { API_TOKEN, API_URL } from "../../constants/constants.js";
 
 export async function fetchStudents(page, pageSize) {
   const result = await fetch(
