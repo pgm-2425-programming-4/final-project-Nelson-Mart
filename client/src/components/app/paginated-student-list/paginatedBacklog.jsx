@@ -50,7 +50,7 @@ export function PaginatedBacklog() {
     <>
       <div style={{ marginBottom: "2rem" }}>
         <Backlog items={currentTasks} />
-        <StudentList students={StudentList} />
+        <StudentList students={currentTasks} />
       </div>
       <Pagination
         currentPage={currentPage}
