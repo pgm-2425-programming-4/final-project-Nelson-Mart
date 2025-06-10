@@ -84,7 +84,7 @@ Pagination logic relies on metadata from the API response.
 bash
 Kopiëren
 Bewerken
-git clone https://github.com/Nelson-Mart/eindwerk.git
+git clone https://github.com/pgm-2425-programming-4/final-project-Nelson-Mart.git
 cd paginated-data-viewer
 2. Start the Backend (Strapi)
 
@@ -128,4 +128,4 @@ Page size and pagination behavior can be customized in the frontend code.
 
 🔗 Extra links
 
-github: https://github.com/Nelson-Mart/eindwerk
+github: https://github.com/pgm-2425-programming-4/final-project-Nelson-Mart
