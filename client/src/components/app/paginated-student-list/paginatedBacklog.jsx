@@ -23,6 +23,7 @@ export function PaginatedBacklog() {
 
         if (!response.ok) throw new Error("Failed to fetch tasks");
         const data = await response.json();
+        console.log(data)
         setTasks(data.data);
       } catch (err) {
         setError(err.message);
