@@ -150,6 +150,8 @@ server/coverage
 ############################
 
 server/.env
+server/.env.develop
+server/.env.production
 server/license.txt
 server/exports
 server/.strapi
