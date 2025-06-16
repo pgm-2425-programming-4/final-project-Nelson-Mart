@@ -11,8 +11,14 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "backlog_item": {
+    "Title": {
       "type": "string"
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "project"
     }
   }
 }

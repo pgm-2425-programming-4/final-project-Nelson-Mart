@@ -410,7 +410,6 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    backlog_item: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
@@ -421,6 +420,8 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    tasks: Schema.Attribute.Relation<"oneToMany", "api::task.task">;
+    Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
@@ -463,6 +464,38 @@ export interface ApiStudentStudent extends Struct.CollectionTypeSchema {
     studentID: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTaskTask extends Struct.CollectionTypeSchema {
+  collectionName: "tasks";
+  info: {
+    description: "";
+    displayName: "Task";
+    pluralName: "tasks";
+    singularName: "task";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    labels: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<"oneToMany", "api::task.task"> &
+      Schema.Attribute.Private;
+    project: Schema.Attribute.Relation<"manyToOne", "api::project.project">;
+    publishedAt: Schema.Attribute.DateTime;
+    task_status: Schema.Attribute.Enumeration<
+      ["backlog", "to_do", "in_progress", "ready_for_review", "done"]
+    >;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<"oneToOne", "admin::user"> &
       Schema.Attribute.Private;
@@ -993,6 +1026,7 @@ declare module "@strapi/strapi" {
       "api::class.class": ApiClassClass;
       "api::project.project": ApiProjectProject;
       "api::student.student": ApiStudentStudent;
+      "api::task.task": ApiTaskTask;
       "plugin::content-releases.release": PluginContentReleasesRelease;
       "plugin::content-releases.release-action": PluginContentReleasesReleaseAction;
       "plugin::i18n.locale": PluginI18NLocale;

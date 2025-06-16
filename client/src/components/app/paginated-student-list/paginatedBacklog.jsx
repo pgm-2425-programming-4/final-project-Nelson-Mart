@@ -15,7 +15,7 @@ export function PaginatedBacklog() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(`${API_URL}/students?sort[0]=age:desc&populate=*`, {
           headers: {
             Authorization: `Bearer ${API_TOKEN}`,
           },

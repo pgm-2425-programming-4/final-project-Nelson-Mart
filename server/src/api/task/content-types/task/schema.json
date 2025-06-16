@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tasks",
+  "info": {
+    "singularName": "task",
+    "pluralName": "tasks",
+    "displayName": "Task",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "labels": {
+      "type": "string"
+    },
+    "task_status": {
+      "type": "enumeration",
+      "enum": [
+        "backlog",
+        "to_do",
+        "in_progress",
+        "ready_for_review",
+        "done"
+      ]
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "tasks"
+    }
+  }
+}
