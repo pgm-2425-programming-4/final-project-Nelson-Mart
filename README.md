@@ -120,10 +120,6 @@ Modular and scalable codebase
 
 📌 Notes
 
-Ensure CORS is properly configured in Strapi to allow frontend access.
-
-You can replace "items" with any other content type in Strapi (e.g., users, posts, articles).
-
 Page size and pagination behavior can be customized in the frontend code.
 
 🔗 Extra links

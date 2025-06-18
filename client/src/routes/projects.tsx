@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
+import { API_URL } from '../constants/constants'
 
 type Project = {
   id: number
@@ -10,7 +11,7 @@ export default function ProjectsList() {
   const [projects, setProjects] = useState<Project[]>([])
 
   useEffect(() => {
-    fetch('https://<jouw-strapi-url>/api/projects')
+    fetch(`${API_URL}/api/projects`)
       .then(res => res.json())
       .then(data => {
         if (data && data.data) {

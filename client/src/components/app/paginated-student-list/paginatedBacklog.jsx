@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { Pagination } from "./paginatedBacklog/pagination/pagination.jsx";
 import { Backlog } from "./paginatedBacklog/pagination/Backlog.jsx";
 import { API_TOKEN, API_URL } from "../../../constants/constants.js";
-import { StudentList } from "./student-list/student-list.jsx";
+import { TaskList } from "./task-list/task-list.jsx";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 10;
 
 export function PaginatedBacklog() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,7 +15,7 @@ export function PaginatedBacklog() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await fetch(`${API_URL}/students?sort[0]=age:desc&populate=*`, {
+        const response = await fetch(`${API_URL}/tasks`, {
           headers: {
             Authorization: `Bearer ${API_TOKEN}`,
           },
@@ -23,7 +23,7 @@ export function PaginatedBacklog() {
 
         if (!response.ok) throw new Error("Failed to fetch tasks");
         const data = await response.json();
-        console.log(data)
+        console.log(data.data)
         setTasks(data.data);
       } catch (err) {
         setError(err.message);
@@ -49,8 +49,7 @@ export function PaginatedBacklog() {
   return (
     <>
       <div style={{ marginBottom: "2rem" }}>
-        <Backlog items={currentTasks} />
-        <StudentList students={currentTasks} />
+        <TaskList tasks={currentTasks} />
       </div>
       <Pagination
         currentPage={currentPage}
@@ -60,3 +59,4 @@ export function PaginatedBacklog() {
     </>
   );
 }
+
