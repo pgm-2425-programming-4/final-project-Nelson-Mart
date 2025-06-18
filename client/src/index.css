@@ -137,3 +137,7 @@
 .status-link:hover {
   background-color: #ddd;
 }
+
+.add_task_form {
+    width: 20rem;
+}
